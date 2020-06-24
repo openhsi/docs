@@ -1,9 +1,11 @@
 import numpy as np
-import pyfits
+from astropy.io import fits
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure
 from scipy.signal import find_peaks
 from scipy.optimize import curve_fit
+from tqdm import tqdm
+from scipy.signal import savgol_filter
 
 
 def func(x, *params):  # x0 pk width

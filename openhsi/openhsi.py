@@ -1,6 +1,9 @@
 import numpy as np
 import pyfits
 from ximea import xiapi
+import log
+
+from . import utils
 
 
 class openhsi(object):
@@ -92,3 +95,12 @@ class openhsi(object):
     @exposure.setter
     def xbinoffset(self, val):
         self.xicam.set_offsetX(val)
+
+
+def main():
+    with openhsi as os:
+        pass
+
+
+if __name__ == '__main__':  # pragma: no cover
+    main()
