@@ -99,8 +99,15 @@ class openhsi(object):
 
 
 def main():
+    import matplotlib.pyplot as plt
+
     with openhsi as os:
-        pass
+        os.start()
+        os.exposure = 1000
+        img = os.get_single_image()
+        plt.figure()
+        imgplot = plt.imshow(img)
+        plt.show()
 
 
 if __name__ == "__main__":  # pragma: no cover
