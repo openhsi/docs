@@ -14,6 +14,7 @@ class openhsi(object):
         else:
             self.xicam.open_device_by_SN(serialnumber)
 
+        log.info("Conected to device, %s!", self.xicam.get_device_sn())
         self.exposure = 5
         self.gain = 0
 
@@ -102,5 +103,5 @@ def main():
         pass
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     main()
