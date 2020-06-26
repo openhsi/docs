@@ -101,7 +101,7 @@ class openhsi(object):
 def main():
     import matplotlib.pyplot as plt
 
-    with openhsi as os:
+    with openhsi() as os:
         os.start()
         os.exposure = 1000
         img = os.get_single_image()
