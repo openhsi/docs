@@ -1,4 +1,4 @@
-#ximea = "4.21.02"
+ximea = "4.21.02"
 numpy = "^1.13.3"
 scipy = "^1.4.1"
 matplotlib = "^2.1.1"
