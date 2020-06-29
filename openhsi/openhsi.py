@@ -1,9 +1,7 @@
 import numpy as np
-import pyfits
+from astropy.io import fits as fitsio
 from ximea import xiapi
 import log
-
-from . import utils
 
 
 class openhsi(object):
