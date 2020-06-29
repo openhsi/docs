@@ -17,12 +17,12 @@ def linerise_wavelength(rawimagedata, wavecalfile="cal_files/wavesoln.npz"):
     wavecal = npzfile["wavecal"]
     newwave = npzfile["newwave"]
 
-    # min and max wave in all cols.
-    minwave = wavecal.min(axis=1).max()
-    maxwave = wavecal.max(axis=1).min()
-    minwavedelta = np.diff(wavecal, axis=1).min()
+    # # min and max wave in all cols.
+    # minwave = wavecal.min(axis=1).max()
+    # maxwave = wavecal.max(axis=1).min()
+    # minwavedelta = np.diff(wavecal, axis=1).min()
 
-    newwave = np.arange(minwave, maxwave, minwavedelta)
+    # newwave = np.arange(minwave, maxwave, minwavedelta)
 
     interpimg = np.zeros((wavecal.shape[0], newwave.shape[0]))
 
