@@ -1,1 +1,0 @@
-arc.fits filter=lfs diff=lfs merge=lfs -text
