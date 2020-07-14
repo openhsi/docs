@@ -5,7 +5,7 @@
 <a rel="license" href="http://creativecommons.org/licenses/by/3.0/au/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/3.0/au/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/au/">Creative Commons Attribution 3.0 Australia License</a>.
 
 
-Documentation can be found here: [https://openhsi.github.io/docs/](https://openhsi.github.io/docs/).
+Documentation can be found here: [https://openhsi.github.io/openhsi/](https://openhsi.github.io/openhsi/).
 
 ## Install
 
