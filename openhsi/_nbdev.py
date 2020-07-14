@@ -12,8 +12,8 @@ modules = ["calibrate.py",
            "capture.py",
            "convert.py"]
 
-doc_url = "https://YiweiMao.github.io/openhsi/"
+doc_url = "https://openhsi.github.io/openhsi"
 
-git_url = "https://github.com/YiweiMao/openhsi/tree/master/"
+git_url = "https://github.com/openhsi/docs/tree/master"
 
 def custom_doc_links(name): return None
