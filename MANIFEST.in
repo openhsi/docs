@@ -1,0 +1,6 @@
+include settings.ini
+include LICENSE
+include CONTRIBUTING.md
+include README.md
+include cal_files/*.hdf5
+recursive-exclude * __pycache__

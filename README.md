@@ -1,25 +1,90 @@
-# openhsi
-Module to Use the USYD OpenHSI.
-
-## openhsi.py class
-Wrapper class and example code for getting images from the OpenHSI using a ximea detetor (with IMX252 sensor, e.g. [MX031CG-SY](https://www.ximea.com/en/products/xilab-application-specific-custom-oem/embedded-vision-and-multi-camera-setup-xix/sony-imx252-fast-color-industrial-camera)).
-
-## Spectral Calibration
-Draft of proccess to calibrate wavelength scale for the sensor.
+# Open Source DIY Hyperspectral Imager Library
+> Library to calibrate, trigger and capture data cubes for the open source DIY hyperspectral camera. 
 
 
-# Setup
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/au/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/3.0/au/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/au/">Creative Commons Attribution 3.0 Australia License</a>.
+
+
+
+Documentation can be found here: [https://yiweimao.github.io/openhsi/](https://yiweimao.github.io/openhsi/).
+[https://openhsi.github.io/docs/](https://openhsi.github.io/docs/)
+
+## Install
+
+`pip install openhsi`
 
 ## Requirements
 
-* Python 3.6+
-* ximea sdk installed
+- Python 3.6+
+- Ximea SDK (See https://www.ximea.com/support/wiki/apis/Python)
 
-## Installation
-Ensure Ximea SDK is installed first. See https://www.ximea.com/support/wiki/apis/Python
+## How to use
 
-### To install openhsi package
-`pip3 install git+https://github.com/SydneyAstrophotonicInstrumentationLab/openhsi`
+### Taking a single picture
 
-### To upgrade in place
-`pip3 install --upgrade --no-deps --force-reinstall  git+https://github.com/SydneyAstrophotonicInstrumentationLab/openhsi`
+```
+from openhsi.capture import *
+
+try:
+    take_show()
+except:
+    print('No devices found. Camera not connected.')
+```
+
+    No devices found. Camera not connected.
+
+
+### Changing the Exposure and Gain
+
+```
+try:
+    with OpenHSI(xbinwidth=896,xbinoffset=528,exposure_ms=1000,gain=0) as cam:
+        cam.exposure    = 100
+        cam.gain        = 5
+
+        img = cam.start().get_img()
+        plt.imshow(img)
+        plt.xlabel('Wavelength (nm)')
+        plt.ylabel('Line pixels')
+        plt.show()
+except:
+    print('No devices found. Camera not connected.')
+```
+
+    No devices found. Camera not connected.
+
+
+### Calibration
+
+```
+from openhsi.calibrate import *
+result = fit_arc_lines2(arc_file = "cal_files/arc.hdf5", wave_save_file = None, skip = 1, show = True)
+```
+
+    Fit arc lines for each spatial pixel
+
+
+
+
+<div>
+    <style>
+        /* Turns off some styling */
+        progress {
+            /* gets rid of default border in Firefox and Opera. */
+            border: none;
+            /* Needs to be in here for Safari polyfill so background images work as expected. */
+            background-size: auto;
+        }
+        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+            background: #F44336;
+        }
+    </style>
+  <progress value='0' class='' max='896' style='width:300px; height:20px; vertical-align: middle;'></progress>
+
+</div>
+
+
+
+
+![svg](docs/images/output_10_2.svg)
+

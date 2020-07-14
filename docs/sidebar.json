@@ -1,0 +1,8 @@
+{
+  "openhsi": {
+    "Overview": "/",
+    "Calibrate": "/calibrate",
+    "Capture": "/capture",
+    "Convert": "/convert"
+  }
+}
