@@ -14,6 +14,6 @@ modules = ["calibrate.py",
 
 doc_url = "https://openhsi.github.io/openhsi"
 
-git_url = "https://github.com/openhsi/docs/tree/master"
+git_url = "https://github.com/openhsi/docs/tree/master/"
 
 def custom_doc_links(name): return None
