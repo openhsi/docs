@@ -6,8 +6,7 @@
 
 
 
-Documentation can be found here: [https://yiweimao.github.io/openhsi/](https://yiweimao.github.io/openhsi/).
-[https://openhsi.github.io/docs/](https://openhsi.github.io/docs/)
+Documentation can be found here: [https://openhsi.github.io/docs/](https://openhsi.github.io/docs/).
 
 ## Install
 
