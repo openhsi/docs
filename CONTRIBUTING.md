@@ -8,7 +8,7 @@ git clone https://github.com/YiweiMao/openhsi
 cd openhsi
 ```
 
-You will need to install `nbdev` to extract the library and produce the documentation files from the notebooks. To upload to PyPi, you will need to install `twine`.
+You will need to install `nbdev` to extract the library and produce the documentation files from the notebooks. To upload to PyPi, you will need to install `twine` (so far, only yours truely can do this).
 ```
 pip install nbdev
 pip install twine
@@ -19,6 +19,12 @@ Before anything else, please install the git hooks that run automatic scripts du
 nbdev_install_git_hooks
 ```
 
+## A note on how the automation tools are set up
+
+Any cell in the notebook marked with `#export` in the first line, will be extracted to generate the library. All other cells are used to create the documentation and to define tests. 
+
+To hide cells from appearing in the documentation, mark the cell with `#hide` in the first line. That's it!
+
 ## Extracting Library
 Any cells you mark as `#export` in the first line is automatically extracted. All other cells will appear in the documentation. If you don't want cells to appear in the documentation, mark the first line with `#hide`. To extract the library, the terminal command is
 ```
@@ -27,7 +33,7 @@ make openhsi
 
 ## Documentation
 
-Docs are automatically created from the notebooks in the nbs folder. The terminal command is
+Docs are automatically created from the notebooks. The terminal command is
 ```
 make docs
 ```
@@ -54,6 +60,12 @@ To include calibration files in the PyPi install, you need to add the file to th
 
 ## Updating changes to GitHub
 
+First fastforward your copy to include the latest change.
+```
+git pull
+```
+
+Push your changes as usual.
 ```
 git add .
 git commit -m "commit message"
