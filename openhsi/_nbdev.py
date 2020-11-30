@@ -2,15 +2,17 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"sum_gaussians": "00_calibrate.ipynb",
-         "fit_arc_lines2": "00_calibrate.ipynb",
-         "OpenHSI": "01_capture.ipynb",
-         "take_show": "01_capture.ipynb",
-         "save": "02_convert.ipynb"}
+index = {"sum_gaussians": "01_calibrate.ipynb",
+         "fit_arc_lines2": "01_calibrate.ipynb",
+         "OpenHSI": "02_capture.ipynb",
+         "take_show": "02_capture.ipynb",
+         "save": "03_data.ipynb",
+         "Sensors": "06_sensors.ipynb"}
 
 modules = ["calibrate.py",
            "capture.py",
-           "convert.py"]
+           "data.py",
+           "sensors.py"]
 
 doc_url = "https://openhsi.github.io/openhsi"
 
