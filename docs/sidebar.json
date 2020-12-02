@@ -1,8 +1,12 @@
 {
   "openhsi": {
     "Overview": "/",
+    "Utils": "/utils",
     "Calibrate": "/calibrate",
     "Capture": "/capture",
-    "Convert": "/convert"
+    "Data": "/data",
+    "Visualise": "/visualise",
+    "Geometry": "/geometry",
+    "Sensors": "/sensors"
   }
 }

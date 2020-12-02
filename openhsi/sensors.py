@@ -40,6 +40,7 @@ class Sensors(object):
                 self.readSerial()
 
                 print(self.data)
+                break
 
         except KeyboardInterrupt:
             print("Exiting Program")
