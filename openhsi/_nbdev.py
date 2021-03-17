@@ -22,7 +22,6 @@ index = {"settings_dump": "00_utils.ipynb",
          "OpenHSI.get_raw_img": "02_capture.ipynb",
          "OpenHSI.load_cam_settings": "02_capture.ipynb",
          "OpenHSI.get_datacube": "02_capture.ipynb",
-         "take_show": "02_capture.ipynb",
          "save": "03_data.ipynb",
          "Sensors": "06_sensors.ipynb"}
 

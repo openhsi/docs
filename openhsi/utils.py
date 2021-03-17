@@ -4,7 +4,9 @@ __all__ = ['settings_dump', 'settings_load', 'CircArrayBuffer', 'DataCube']
 
 # Cell
 import json
+import datetime
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import xarray as xr
 from fastcore.foundation import patch
@@ -54,7 +56,7 @@ def push(self:CircArrayBuffer,line):
     self.write_pos[self.axis] += 1
     if self.write_pos[self.axis] == self.size[self.axis]:
         self.write_pos[self.axis] = 0
-        # write data to file
+        # write data to file?
 
 @patch
 def show(self:CircArrayBuffer):
@@ -104,6 +106,7 @@ class DataCube(CircArrayBuffer):
         self.row_slice = slice(row_slice[0],row_slice[-1],None)
         self.fwhm_nm = fwhm_nm
         self.wavelength_range = wavelength_range
+        self.timestamps = pd.date_range(datetime.datetime.now(), periods=100, freq="1s").to_numpy() # preallocate array
 
         # for smile corrected functionality
         self.shifts = shifts if shifts is not None else np.zeros((np.ptp(row_slice),),dtype=np.uint16)
@@ -115,7 +118,6 @@ class DataCube(CircArrayBuffer):
         self.byte_sz    = dtype(0).nbytes
         self.reduced_shape = (self.rows,n_lines,self.cols//self.width)
 
-        #breakpoint()
         self.wavelengths = np.linspace(*wavelength_range,num=line_sz[1],dtype=np.float32)[np.max(self.shifts):]
         self.wavelengths = np.lib.stride_tricks.as_strided(self.wavelengths,
                                 strides=(self.width*4,4),
@@ -125,11 +127,14 @@ class DataCube(CircArrayBuffer):
 
         self.line_buff = CircArrayBuffer((size[0],size[2]),axis=0,dtype=dtype)
 
+
     def __repr__(self):
         return f"DataCube:\nshifts=\n{self.shifts}\n" + super().__repr__()
 
     def push(self,line:np.ndarray) -> None:
         """writes a (n-1)darray into the ndarray"""
+        self.timestamps[ self.write_pos[self.axis] ] = np.datetime64(datetime.datetime.now())
+
         for i in range(self.size[0]):
             self.line_buff.push(line[self.row_slice.start+i,self.shifts[i]:self.shifts[i]+self.line_buff.size[1]])
 
